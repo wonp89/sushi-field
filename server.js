@@ -5,11 +5,24 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const path = require("path");
 const testRouter_1 = require("./server/routes/testRouter");
+const mongoose = require("mongoose");
 class Server {
     constructor() {
         this.app = express();
         this.config();
         this.routes();
+        this.mongooseConnect();
+    }
+    mongooseConnect() {
+        const MONGO_URI = 'mongodb://localhost:27017/sushi-field';
+        mongoose.connect(MONGO_URI, (err) => {
+            if (err) {
+                console.log(err.message);
+            }
+            else {
+                console.log('Connected to MongoDb');
+            }
+        });
     }
     config() {
         this.app.use(logger('dev'));
@@ -19,6 +32,12 @@ class Server {
         this.app.get('*'), (req, res) => {
             res.sendFile(path.join(__dirname, 'dist/index.html'));
         };
+        this.app.use((req, res, next) => {
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+            res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+            next();
+        });
     }
     routes() {
         const router = express.Router();
