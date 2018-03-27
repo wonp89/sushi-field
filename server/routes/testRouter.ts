@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 
-export class TestRouter {
+class TestRouter {
     public router: Router;
 
     constructor() {

@@ -15,7 +15,6 @@ class TestRouter {
         this.router.get('/', this.test);
     }
 }
-exports.TestRouter = TestRouter;
 const testRoutes = new TestRouter().router;
 // testRoutes.routes();
 exports.default = testRoutes;

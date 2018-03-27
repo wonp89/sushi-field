@@ -29,5 +29,15 @@ const MenuSchema: Schema = new Schema({
 
 });
 
+MenuSchema.post('remove', (menu) => {
+    Category.findById(this.menu.categoryId, (err, category) => {
+        if (err) {
+            console.log(err.message)
+        }
+        this.category.list.pull(menu);
+        category.save();
+    });
+});
 
 export default model('Menu', MenuSchema)
+

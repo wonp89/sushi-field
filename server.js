@@ -4,14 +4,17 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const path = require("path");
-const testRouter_1 = require("./server/routes/testRouter");
 const mongoose = require("mongoose");
+const testRouter_1 = require("./server/routes/testRouter");
+const userRouter_1 = require("./server/routes/userRouter");
+const menuRouter_1 = require("./server/routes/menuRouter");
+const categoryRouter_1 = require("./server/routes/categoryRouter");
 class Server {
     constructor() {
         this.app = express();
         this.config();
-        this.routes();
         this.mongooseConnect();
+        this.routes();
     }
     mongooseConnect() {
         const MONGO_URI = 'mongodb://localhost:27017/sushi-field';
@@ -42,6 +45,9 @@ class Server {
     routes() {
         const router = express.Router();
         this.app.use('/test', testRouter_1.default);
+        this.app.use('/user', userRouter_1.default);
+        this.app.use('/menu', menuRouter_1.default);
+        this.app.use('/category', categoryRouter_1.default);
     }
 }
 exports.default = new Server().app;

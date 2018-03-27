@@ -1,7 +1,7 @@
 import { model, Schema } from 'mongoose';
 
 const CategorySchema: Schema = new Schema({
-    category: {
+    categories: {
         type: String,
         default: '',
         required: true

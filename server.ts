@@ -3,9 +3,13 @@ import * as bodyParser from "body-parser";
 import * as logger from "morgan";
 import * as path from "path";
 import * as http from "http";
-import testRouter from './server/routes/testRouter';
 import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
+
+import testRouter from './server/routes/testRouter';
+import userRouter from './server/routes/userRouter';
+import menuRouter from './server/routes/menuRouter';
+import categoryRouter from './server/routes/categoryRouter';
 
 class Server {
 
@@ -14,8 +18,8 @@ class Server {
     constructor() {
         this.app = express();
         this.config();
-        this.routes();
         this.mongooseConnect();
+        this.routes();
     }
 
     public mongooseConnect(): void {
@@ -51,6 +55,9 @@ class Server {
     public routes(): void {
         const router: express.Router = express.Router();
         this.app.use('/test', testRouter);
+        this.app.use('/user', userRouter);
+        this.app.use('/menu', menuRouter);
+        this.app.use('/category', categoryRouter);
     }
 }
 
