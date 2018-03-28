@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { MenuService } from './menu.service';
@@ -11,6 +11,7 @@ import { Menu } from './menu.model'
 })
 
 export class MenuInputComponent {
+    @Input() categories:  Array<string> = ["Appetizer", "Sushi"];
     menu: Menu;
 
     constructor (private menuService: MenuService) {}
@@ -20,7 +21,8 @@ export class MenuInputComponent {
             form.value.name,
             form.value.price,
             form.value.about,
-            form.value.category
+            form.value.category,
+            '123'
         );
         this.menuService.addMenu(menu)
         .subscribe(

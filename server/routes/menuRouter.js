@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const category_1 = require("../models/category");
 const menu_1 = require("../models/menu");
 class MenuRouter {
     constructor() {
@@ -12,19 +13,28 @@ class MenuRouter {
         const price = req.body.price;
         const about = req.body.about;
         const category = req.body.category;
-        // const categoryId: Obejct = {"_id":}
         let menu = new menu_1.default({
             name,
             price,
             about,
-            category,
+            category
         });
-        menu.save()
-            .then((data) => {
-            res.status(201).json({ data });
-        })
-            .catch((error) => {
-            res.status(500).json({ error });
+        category_1.default.find({ categories: category }, (err, category) => {
+            if (err) {
+                return res.status(500).json({ err });
+            }
+            const selectedCategory = category[0];
+            selectedCategory.list.push(menu);
+            // remove
+            // const one = selectedCategory.list.find(x => x._id == "5abaff59a3fd8abbcc172701")
+            // selectedCategory.list.splice(one, 1)
+            selectedCategory.save()
+                .then((data) => {
+                res.status(201).json({ data });
+            })
+                .catch((err) => {
+                res.status(500).json({ err });
+            });
         });
     }
     routes() {

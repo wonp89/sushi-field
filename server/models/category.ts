@@ -6,10 +6,7 @@ const CategorySchema: Schema = new Schema({
         default: '',
         required: true
     },
-    list: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Menu'
-    }]
+    list: []
 });
 
 export default model('Category', CategorySchema)

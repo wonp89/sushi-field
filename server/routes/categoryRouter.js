@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//This is for creating categories manually
 const express_1 = require("express");
 const category_1 = require("../models/category");
 class CategoryRouter {
@@ -9,10 +10,8 @@ class CategoryRouter {
     }
     create(req, res) {
         const categories = "Appetizer";
-        // const list: Array<Object> = req.body.menu._id
         let category = new category_1.default({
             categories
-            // list
         });
         category.save()
             .then((data) => {

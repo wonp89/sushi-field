@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
-const category_1 = require("./category");
 const MenuSchema = new mongoose_1.Schema({
     name: {
         type: String,
@@ -22,20 +21,16 @@ const MenuSchema = new mongoose_1.Schema({
         type: String,
         default: '',
         required: true
-    },
-    categoryId: {
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'User'
     }
 });
-MenuSchema.post('remove', (menu) => {
-    category_1.default.findById(this.menu.categoryId, (err, category) => {
-        if (err) {
-            console.log(err.message);
-        }
-        this.category.list.pull(menu);
-        category.save();
-    });
-});
+// MenuSchema.post('remove', (menu) => {
+//     Category.find({categories: this.menu.category}, (err, category) => {
+//         if (err) {
+//             console.log(err.message)
+//         }
+//         this.category.list.pull(menu);
+//         category.save();
+//     });
+// });
 exports.default = mongoose_1.model('Menu', MenuSchema);
 //# sourceMappingURL=menu.js.map

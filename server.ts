@@ -6,7 +6,6 @@ import * as http from "http";
 import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
 
-import testRouter from './server/routes/testRouter';
 import userRouter from './server/routes/userRouter';
 import menuRouter from './server/routes/menuRouter';
 import categoryRouter from './server/routes/categoryRouter';
@@ -54,7 +53,6 @@ class Server {
 
     public routes(): void {
         const router: express.Router = express.Router();
-        this.app.use('/test', testRouter);
         this.app.use('/user', userRouter);
         this.app.use('/menu', menuRouter);
         this.app.use('/category', categoryRouter);

@@ -16,21 +16,29 @@ class MenuRouter {
         const price: string = req.body.price
         const about: string = req.body.about
         const category: string = req.body.category
-        // const categoryId: Obejct = {"_id":}
         let menu = new Menu({
             name,
             price,
             about,
-            category,
-            // categoryId
+            category
         });
-        menu.save()
-        .then((data) => {
-            res.status(201).json({ data });
-          })
-          .catch((error) => {
-            res.status(500).json({ error });
-          });
+        Category.find({ categories: category }, (err, category) => {
+            if (err) {
+                return res.status(500).json({ err });
+            }
+            const selectedCategory: any = category[0]
+            selectedCategory.list.push(menu)
+            // remove
+            // const one = selectedCategory.list.find(x => x._id == "5abaff59a3fd8abbcc172701")
+            // selectedCategory.list.splice(one, 1)
+            selectedCategory.save()
+                 .then((data) => {
+                    res.status(201).json({ data })
+                })
+                .catch((err) => {
+                    res.status(500).json({ err });
+                });
+        })
     }
 
     public routes() {

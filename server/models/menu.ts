@@ -21,23 +21,18 @@ const MenuSchema: Schema = new Schema({
         type: String,
         default: '',
         required: true
-    },
-    categoryId: {
-        type: Schema.Types.ObjectId, 
-        ref: 'User'
     }
-
 });
 
-MenuSchema.post('remove', (menu) => {
-    Category.findById(this.menu.categoryId, (err, category) => {
-        if (err) {
-            console.log(err.message)
-        }
-        this.category.list.pull(menu);
-        category.save();
-    });
-});
+// MenuSchema.post('remove', (menu) => {
+//     Category.find({categories: this.menu.category}, (err, category) => {
+//         if (err) {
+//             console.log(err.message)
+//         }
+//         this.category.list.pull(menu);
+//         category.save();
+//     });
+// });
 
 export default model('Menu', MenuSchema)
 

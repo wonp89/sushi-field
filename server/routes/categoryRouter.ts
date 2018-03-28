@@ -1,3 +1,4 @@
+//This is for creating categories manually
 import { Request, Response, Router } from 'express';
 import Category from '../models/category';
 import Menu from '../models/menu';
@@ -12,10 +13,8 @@ class CategoryRouter {
 
     public create(req: Request, res: Response): void {
         const categories: string = "Appetizer"
-        // const list: Array<Object> = req.body.menu._id
         let category = new Category({
             categories
-            // list
         });
         category.save()
         .then((data) => {

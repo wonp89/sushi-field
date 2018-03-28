@@ -24,7 +24,7 @@ import { MenuService } from './menu/menu.service';
     BrowserModule,
     HttpModule,
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

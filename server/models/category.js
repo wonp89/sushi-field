@@ -7,10 +7,7 @@ const CategorySchema = new mongoose_1.Schema({
         default: '',
         required: true
     },
-    list: [{
-            type: mongoose_1.Schema.Types.ObjectId,
-            ref: 'Menu'
-        }]
+    list: []
 });
 exports.default = mongoose_1.model('Category', CategorySchema);
 //# sourceMappingURL=category.js.map
