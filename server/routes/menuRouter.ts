@@ -16,7 +16,7 @@ class MenuRouter {
             .exec((err, data) => {
                 err
                     ? res.status(500).json({ err })
-                    : res.status(200).json({ data });
+                    : res.status(201).json({ data });
             });
     }
 
@@ -32,14 +32,17 @@ class MenuRouter {
             category
         });
         menu.save()
+
+            //push menu into category list
             .then((data: any) => {
                 Category.find({ categories: category }, (err, category) => {
-                    if (err) {
-                        return res.status(500).json({ err });
-                    }
+
+                    if (err) return res.status(500).json({ err });
+                    
                     const selectedCategory: any = category[0]
                     selectedCategory.list.push(data._id)
                     selectedCategory.save()
+
                         // send menu object stored in category list array to the client side
                         .then((result: any) => {
                             Category.find({ _id: result._id })
@@ -56,28 +59,47 @@ class MenuRouter {
 
     public update(req: Request, res: Response): void {
         Menu.findById(req.params.id, (err, menu: any) => {
-            if (err) {
-                return res.status(500).json({ err })
-            }
+            
+            if (err) return res.status(500).json({ err })
+
+            // remove menu from old category
+            if (menu.category !== req.body.category)
+                Category.find({ categories: menu.category }, (err, result: any) => {
+
+                    if (err) return res.status(500).json({ err })
+
+                    const oldCategory = result[0]
+                    oldCategory.list.pull(menu._id)
+                    oldCategory.save();
+                })
+
             menu.name = req.body.name
             menu.price = req.body.price
             menu.about = req.body.about
             menu.category = req.body.category
-            menu.save((err, result) =>
+            menu.save((err, result) => {
                 err
                     ? res.status(500).json({ err })
-                    : res.status(201).json({ result })
-            )
-        }
-        )
+                    : Category.find({ categories: result.category }, (err, category: any) => {
+
+                        if (err) return res.status(500).json({ err });
+
+                        //save menu into new category
+                        const selectedCategory: any = category[0]
+                        selectedCategory.list.push(result._id)
+                        selectedCategory.save()
+                        res.status(201).json({ result })
+                    })
+            })
+        })
     }
 
     public remove(req: Request, res: Response): void {
         Menu.findById(req.params.id, (err, menu) => {
-            if (err) {
-                return res.status(500).json({ err })
-            }
-            menu.remove((err, result) => 
+
+            if (err) return res.status(500).json({ err })
+            
+            menu.remove((err, result) =>
                 err
                     ? res.status(500).json({ err })
                     : res.status(201).json({ result })
