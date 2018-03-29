@@ -24,15 +24,16 @@ const MenuSchema: Schema = new Schema({
     }
 });
 
-// MenuSchema.post('remove', (menu) => {
-//     Category.find({categories: this.menu.category}, (err, category) => {
-//         if (err) {
-//             console.log(err.message)
-//         }
-//         this.category.list.pull(menu);
-//         category.save();
-//     });
-// });
+// remove id inside cateogory-list
+MenuSchema.post('remove', (menu: any): void => {
+    Category.find({categories: menu.category}, (err, category: any) => {
+        if (err) {
+            console.log(err.message)
+        }
+        category[0].list.pull(menu);
+        category[0].save();
+    });
+});
 
 export default model('Menu', MenuSchema)
 

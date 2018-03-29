@@ -1,4 +1,4 @@
-//This is for creating categories manually
+//route for seeding category database: http://localhost:3000/category
 import { Request, Response, Router } from 'express';
 import Category from '../models/category';
 import Menu from '../models/menu';
@@ -12,17 +12,30 @@ class CategoryRouter {
     }
 
     public create(req: Request, res: Response): void {
-        const categories: string = "Appetizer"
-        let category = new Category({
-            categories
-        });
-        category.save()
-        .then((data) => {
-            res.status(201).json({ data });
-          })
-          .catch((error) => {
-            res.status(500).json({ error });
-          });
+
+        const categories: any[] = [
+            new Category({
+                categories: "Appetizer"
+            }),
+            new Category({
+                categories: "Sushi"
+            }),
+            new Category({
+                categories: "Tempura"
+            }),
+            new Category({
+                categories: "Noodle"
+            }),
+            new Category({
+                categories: "Drink"
+            })
+        ];
+
+        for (let category of categories) {
+            let allCategory = new Category(category)
+            allCategory.save()
+        }
+        res.send("databse sucessfully seeded")
     }
 
     public routes() {

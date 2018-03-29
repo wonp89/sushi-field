@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//This is for creating categories manually
+//route for seeding category database: http://localhost:3000/category
 const express_1 = require("express");
 const category_1 = require("../models/category");
 class CategoryRouter {
@@ -9,17 +9,28 @@ class CategoryRouter {
         this.routes();
     }
     create(req, res) {
-        const categories = "Appetizer";
-        let category = new category_1.default({
-            categories
-        });
-        category.save()
-            .then((data) => {
-            res.status(201).json({ data });
-        })
-            .catch((error) => {
-            res.status(500).json({ error });
-        });
+        const categories = [
+            new category_1.default({
+                categories: "Appetizer"
+            }),
+            new category_1.default({
+                categories: "Sushi"
+            }),
+            new category_1.default({
+                categories: "Tempura"
+            }),
+            new category_1.default({
+                categories: "Noodle"
+            }),
+            new category_1.default({
+                categories: "Drink"
+            })
+        ];
+        for (let category of categories) {
+            let allCategory = new category_1.default(category);
+            allCategory.save();
+        }
+        res.send("databse sucessfully seeded");
     }
     routes() {
         this.router.post('/', this.create);
