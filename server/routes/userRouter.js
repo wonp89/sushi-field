@@ -20,7 +20,7 @@ class UserRouter {
         res.send("User sucessfully saved");
     }
     signin(req, res) {
-        user_1.default.findOne({ email: req.body.email }, (err, user) => {
+        user_1.default.findOne({ username: req.body.username }, (err, user) => {
             if (err)
                 return res.status(500).json({ err });
             if (!user)

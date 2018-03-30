@@ -23,8 +23,7 @@ class UserRouter {
     }
 
     public signin(req: Request, res: Response): void {
-        User.findOne({ email: req.body.email }, (err, user: any) => {
-
+        User.findOne({ username: req.body.username }, (err, user: any) => {
             if (err) return res.status(500).json({err})
             if (!user) return res.status(401).json({ err: {message: 'Wrong Username'}})
             if (!bcrypt.compareSync(req.body.password, user.password)) return res.status(401).json({ err: {message: "Wrong Password"}})
