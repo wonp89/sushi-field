@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 //route for seeding category database: http://localhost:3000/category
-const express_1 = require("express");
-const category_1 = require("../models/category");
-class CategoryRouter {
-    constructor() {
+var express_1 = require("express");
+var category_1 = require("../models/category");
+var CategoryRouter = /** @class */ (function () {
+    function CategoryRouter() {
         this.router = express_1.Router();
         this.routes();
     }
-    create(req, res) {
-        const categories = [
+    CategoryRouter.prototype.create = function (req, res) {
+        var categories = [
             new category_1.default({
                 categories: "Appetizer"
             }),
@@ -26,16 +26,18 @@ class CategoryRouter {
                 categories: "Drink"
             })
         ];
-        for (let category of categories) {
-            let allCategory = new category_1.default(category);
+        for (var _i = 0, categories_1 = categories; _i < categories_1.length; _i++) {
+            var category = categories_1[_i];
+            var allCategory = new category_1.default(category);
             allCategory.save();
         }
         res.send("Databse sucessfully seeded");
-    }
-    routes() {
+    };
+    CategoryRouter.prototype.routes = function () {
         this.router.post('/', this.create);
-    }
-}
-const categoryRoutes = new CategoryRouter().router;
+    };
+    return CategoryRouter;
+}());
+var categoryRoutes = new CategoryRouter().router;
 exports.default = categoryRoutes;
 //# sourceMappingURL=categoryRouter.js.map

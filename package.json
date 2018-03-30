@@ -10,12 +10,12 @@
   "scripts": {
     "ng": "ng",
     "dev": "concurrently \"ng build -watch\" \"tsc -p tsconfig-server.json -watch\" \"nodemon index.js\"",
-    "start": "node index.js",
     "build": "ng build --prod",
+    "postinstall": "ng build --aot -prod",
+    "start": "node index.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +33,7 @@
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
     "concurrently": "^3.5.1",
+    "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.2.0",
@@ -40,13 +41,15 @@
     "morgan": "^1.9.0",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19",
-    "@angular/cli": "~1.7.3",
-    "@angular/compiler-cli": "^5.2.0"
+    "@angular/cli": "~1.7.3"
   },
   "devDependencies": {
+    "@angular/cli": "~1.7.3",
+    "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/bcryptjs": "^2.4.1",
     "@types/body-parser": "^1.16.8",
+    "@types/cookie-parser": "^1.4.1",
     "@types/express": "^4.11.1",
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",

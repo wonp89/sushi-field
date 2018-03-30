@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as logger from "morgan";
+import * as cookieParser from 'cookie-parser';
 import * as path from "path";
 import * as http from "http";
 import * as mongoose from 'mongoose';
@@ -39,7 +40,8 @@ class Server {
         this.app.use(logger('dev'));
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(bodyParser.json());
-        this.app.use(express.static(path.join(__dirname, 'dist')));
+        this.app.use(cookieParser());
+        this.app.use(express.static(path.join(__dirname, '/dist')));
         this.app.get('*'), (req: Request, res: Response) => {
             res.sendFile(path.join(__dirname, 'dist/index.html'))
         }

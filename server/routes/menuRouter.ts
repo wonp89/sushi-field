@@ -14,9 +14,8 @@ class MenuRouter {
         Category.find()
             .populate('list', ['name', 'price', 'about', 'category'])
             .exec((err, data) => {
-                err
-                    ? res.status(500).json({ err })
-                    : res.status(201).json({ data });
+                if (err) return res.status(500).json({ err })
+                res.status(201).json({ data })
             });
     }
 
@@ -36,9 +35,7 @@ class MenuRouter {
             //push menu into category list
             .then((data: any): void => {
                 Category.find({ categories: category }, (err, category) => {
-
                     if (err) return res.status(500).json({ err });
-                    
                     const selectedCategory: any = category[0]
                     selectedCategory.list.push(data._id)
                     selectedCategory.save()
@@ -47,10 +44,10 @@ class MenuRouter {
                         .then((result: any): void => {
                             Category.find({ _id: result._id })
                                 .populate('list', ['name', 'price', 'about', 'category'])
-                                .exec((err, data) =>
-                                    err
-                                        ? res.status(500).json({ err })
-                                        : res.status(201).json({ data })
+                                .exec((err, data) => {
+                                    if (err) return res.status(500).json({ err })
+                                    res.status(201).json({ data })
+                                }
                                 )
                         })
                 })
@@ -59,15 +56,11 @@ class MenuRouter {
 
     public update(req: Request, res: Response): void {
         Menu.findById(req.params.id, (err, menu: any) => {
-            
             if (err) return res.status(500).json({ err })
-
             // remove menu from old category
             if (menu.category !== req.body.category)
                 Category.find({ categories: menu.category }, (err, result: any) => {
-
                     if (err) return res.status(500).json({ err })
-
                     const oldCategory = result[0]
                     oldCategory.list.pull(menu._id)
                     oldCategory.save();
@@ -78,31 +71,26 @@ class MenuRouter {
             menu.about = req.body.about
             menu.category = req.body.category
             menu.save((err, result) => {
-                err
-                    ? res.status(500).json({ err })
-                    : Category.find({ categories: result.category }, (err, category: any) => {
-
-                        if (err) return res.status(500).json({ err });
-
-                        //save menu into new category
-                        const selectedCategory: any = category[0]
-                        selectedCategory.list.push(result._id)
-                        selectedCategory.save()
-                        res.status(201).json({ result })
-                    })
+                if (err) return res.status(500).json({ err })
+                Category.find({ categories: result.category }, (err, category: any) => {
+                    if (err) return res.status(500).json({ err });
+                    //save menu into new category
+                    const selectedCategory: any = category[0]
+                    selectedCategory.list.push(result._id)
+                    selectedCategory.save()
+                    res.status(201).json({ result })
+                })
             })
         })
     }
 
     public remove(req: Request, res: Response): void {
         Menu.findById(req.params.id, (err, menu) => {
-
             if (err) return res.status(500).json({ err })
-            
-            menu.remove((err, result) =>
-                err
-                    ? res.status(500).json({ err })
-                    : res.status(201).json({ result })
+            menu.remove((err, result) => {
+                if (err) return res.status(500).json({ err })
+                res.status(201).json({ result })
+            }
             )
         })
     }

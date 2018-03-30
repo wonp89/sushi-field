@@ -1,61 +1,63 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const category_1 = require("../models/category");
-const menu_1 = require("../models/menu");
-class MenuRouter {
-    constructor() {
+var express_1 = require("express");
+var category_1 = require("../models/category");
+var menu_1 = require("../models/menu");
+var MenuRouter = /** @class */ (function () {
+    function MenuRouter() {
         this.router = express_1.Router();
         this.routes();
     }
-    get(req, res) {
+    MenuRouter.prototype.get = function (req, res) {
         category_1.default.find()
             .populate('list', ['name', 'price', 'about', 'category'])
-            .exec((err, data) => {
-            err
-                ? res.status(500).json({ err })
-                : res.status(201).json({ data });
+            .exec(function (err, data) {
+            if (err)
+                return res.status(500).json({ err: err });
+            res.status(201).json({ data: data });
         });
-    }
-    create(req, res) {
-        const name = req.body.name;
-        const price = req.body.price;
-        const about = req.body.about;
-        const category = req.body.category;
-        let menu = new menu_1.default({
-            name,
-            price,
-            about,
-            category
+    };
+    MenuRouter.prototype.create = function (req, res) {
+        var name = req.body.name;
+        var price = req.body.price;
+        var about = req.body.about;
+        var category = req.body.category;
+        var menu = new menu_1.default({
+            name: name,
+            price: price,
+            about: about,
+            category: category
         });
         menu.save()
-            .then((data) => {
-            category_1.default.find({ categories: category }, (err, category) => {
+            .then(function (data) {
+            category_1.default.find({ categories: category }, function (err, category) {
                 if (err)
-                    return res.status(500).json({ err });
-                const selectedCategory = category[0];
+                    return res.status(500).json({ err: err });
+                var selectedCategory = category[0];
                 selectedCategory.list.push(data._id);
                 selectedCategory.save()
-                    .then((result) => {
+                    .then(function (result) {
                     category_1.default.find({ _id: result._id })
                         .populate('list', ['name', 'price', 'about', 'category'])
-                        .exec((err, data) => err
-                        ? res.status(500).json({ err })
-                        : res.status(201).json({ data }));
+                        .exec(function (err, data) {
+                        if (err)
+                            return res.status(500).json({ err: err });
+                        res.status(201).json({ data: data });
+                    });
                 });
             });
         });
-    }
-    update(req, res) {
-        menu_1.default.findById(req.params.id, (err, menu) => {
+    };
+    MenuRouter.prototype.update = function (req, res) {
+        menu_1.default.findById(req.params.id, function (err, menu) {
             if (err)
-                return res.status(500).json({ err });
+                return res.status(500).json({ err: err });
             // remove menu from old category
             if (menu.category !== req.body.category)
-                category_1.default.find({ categories: menu.category }, (err, result) => {
+                category_1.default.find({ categories: menu.category }, function (err, result) {
                     if (err)
-                        return res.status(500).json({ err });
-                    const oldCategory = result[0];
+                        return res.status(500).json({ err: err });
+                    var oldCategory = result[0];
                     oldCategory.list.pull(menu._id);
                     oldCategory.save();
                 });
@@ -63,37 +65,40 @@ class MenuRouter {
             menu.price = req.body.price;
             menu.about = req.body.about;
             menu.category = req.body.category;
-            menu.save((err, result) => {
-                err
-                    ? res.status(500).json({ err })
-                    : category_1.default.find({ categories: result.category }, (err, category) => {
-                        if (err)
-                            return res.status(500).json({ err });
-                        //save menu into new category
-                        const selectedCategory = category[0];
-                        selectedCategory.list.push(result._id);
-                        selectedCategory.save();
-                        res.status(201).json({ result });
-                    });
+            menu.save(function (err, result) {
+                if (err)
+                    return res.status(500).json({ err: err });
+                category_1.default.find({ categories: result.category }, function (err, category) {
+                    if (err)
+                        return res.status(500).json({ err: err });
+                    //save menu into new category
+                    var selectedCategory = category[0];
+                    selectedCategory.list.push(result._id);
+                    selectedCategory.save();
+                    res.status(201).json({ result: result });
+                });
             });
         });
-    }
-    remove(req, res) {
-        menu_1.default.findById(req.params.id, (err, menu) => {
+    };
+    MenuRouter.prototype.remove = function (req, res) {
+        menu_1.default.findById(req.params.id, function (err, menu) {
             if (err)
-                return res.status(500).json({ err });
-            menu.remove((err, result) => err
-                ? res.status(500).json({ err })
-                : res.status(201).json({ result }));
+                return res.status(500).json({ err: err });
+            menu.remove(function (err, result) {
+                if (err)
+                    return res.status(500).json({ err: err });
+                res.status(201).json({ result: result });
+            });
         });
-    }
-    routes() {
+    };
+    MenuRouter.prototype.routes = function () {
         this.router.get('/', this.get);
         this.router.post('/', this.create);
         this.router.patch('/:id', this.update);
         this.router.delete('/:id', this.remove);
-    }
-}
-const menuRoutes = new MenuRouter().router;
+    };
+    return MenuRouter;
+}());
+var menuRoutes = new MenuRouter().router;
 exports.default = menuRoutes;
 //# sourceMappingURL=menuRouter.js.map
