@@ -1,18 +1,23 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="row" *ngIf="isLoggedIn()">
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="form-group">
-            <label for="category">Category</label>
-            <select type="text" id="category" class="form-control" ngModel name="category" >
-                    <option value={{category}} *ngFor="let category of categories">{{category}}</option>
+        <div class="form-inline">
+            <label for="category" class="mr-sm-2">Category</label>
+            <select type="text" id="category" class="form-control mb-2 mr-sm-2 mb-sm-0" [ngModel]="menu?.category" name="category">
+                <option value={{category}} *ngFor="let category of categoriesList">{{category}}</option>
             </select>
-            <label for="name">Name</label>
-            <input type="text" id="name" class="form-control" ngModel name="name" required>
-            <label for="price">Price</label>
-            <input type="text" id="price" class="form-control" ngModel name="price" required>
+            <label for="name" class="mr-sm-2">Name</label>
+            <input type="text" id="name" class="form-control mb-2 mr-sm-2 mb-sm-0"  [ngModel]="menu?.name" name="name" required>
+            <label for="price" class="mr-sm-2">Price</label>
+            <input type="text" id="price" class="form-control mb-2 mr-sm-2 mb-sm-0"  [ngModel]="menu?.price" name="price" required>
+
+        </div>
+        <br>
+        <div class="form-group">
             <label for="about">About</label>
-            <input type="text" id="about" class="form-control" ngModel name="about" required>
+            <textarea class="form-control" type="text" id="about"  [ngModel]="menu?.about" name="about" required></textarea>
         </div>
         <!-- <button type="button" class="btn btn-danger" (click)="onClear(f)">Clear</button> -->
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
     </form>
 </div>
+<br>

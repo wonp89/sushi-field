@@ -1,0 +1,15 @@
+<h1>{{category.categories}}</h1>
+<div class="panel panel-default">
+    <div class="panel-body" *ngFor="let menu of category.list">
+        <strong style="float: left">{{menu.name | uppercase }}</strong>
+        <p class="text-right">{{menu.price}}</p>
+        <p class="text-left">{{menu.about}}</p>
+        <div *ngIf="isLoggedIn()">
+            <a herf="#" (click)="onEdit(menu)">Edit</a>
+            <a (click)="onDelete(menu)">Delete</a>
+        </div>
+    </div>
+</div>
+<hr>
+
+<!-- islogged in is aways false -->

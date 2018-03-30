@@ -4,6 +4,6 @@ export class Menu {
         public price: string,
         public about: string,
         public category: string,
-        public menuId:  string
+        public _id:  string
     ) {}
 }

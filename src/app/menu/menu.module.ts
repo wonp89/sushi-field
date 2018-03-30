@@ -6,11 +6,14 @@ import { FormsModule } from "@angular/forms";
 import { MenuService } from './menu.service';
 import { MenuInputComponent } from './menu-input.component';
 import { MenusComponent } from './menus.component';
+import { MenuListComponent } from './menu-list.component';
+import { MenuComponent } from './menu.component';
 
 @NgModule({
     declarations: [
         MenuInputComponent,
-        MenusComponent
+        MenusComponent,
+        MenuListComponent
     ],
     imports: [
         CommonModule,

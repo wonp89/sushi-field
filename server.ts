@@ -22,7 +22,8 @@ class Server {
     }
 
     public mongooseConnect(): void {
-        const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
+        // const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
+        const MONGO_URI: string = 'mongodb://sushiFieldUser:salmontuna@ds229549.mlab.com:29549/sushifield';
         mongoose.connect(MONGO_URI, (err) => {
             if (err) {
                 console.log(err.message);
@@ -43,12 +44,6 @@ class Server {
             res.sendFile(path.join(__dirname, 'dist/index.html'))
         }
 
-        this.app.use((req, res, next) => {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-            res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-            next();
-        });
     }
 
     public routes(): void {
