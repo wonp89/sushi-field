@@ -30,7 +30,7 @@ class CategoryRouter {
             let allCategory = new category_1.default(category);
             allCategory.save();
         }
-        res.send("databse sucessfully seeded");
+        res.send("Databse sucessfully seeded");
     }
     routes() {
         this.router.post('/', this.create);

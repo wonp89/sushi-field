@@ -34,7 +34,7 @@ class MenuRouter {
         menu.save()
 
             //push menu into category list
-            .then((data: any) => {
+            .then((data: any): void => {
                 Category.find({ categories: category }, (err, category) => {
 
                     if (err) return res.status(500).json({ err });
@@ -44,7 +44,7 @@ class MenuRouter {
                     selectedCategory.save()
 
                         // send menu object stored in category list array to the client side
-                        .then((result: any) => {
+                        .then((result: any): void => {
                             Category.find({ _id: result._id })
                                 .populate('list', ['name', 'price', 'about', 'category'])
                                 .exec((err, data) =>

@@ -35,7 +35,7 @@ class CategoryRouter {
             let allCategory = new Category(category)
             allCategory.save()
         }
-        res.send("databse sucessfully seeded")
+        res.send("Databse sucessfully seeded")
     }
 
     public routes() {

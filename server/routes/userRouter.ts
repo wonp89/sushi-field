@@ -1,4 +1,6 @@
 import { Request, Response, Router } from 'express';
+var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken')
 import User from '../models/user';
 
 class UserRouter {
@@ -10,24 +12,35 @@ class UserRouter {
     }
 
     public create(req: Request, res: Response): void {
-        const userName: string = "sushiField"
-        const password: string = "1234"
+        const username: string = "sushiField"
+        const password: string = bcrypt.hashSync("1234", 10)
         let user = new User({
-            userName,
+            username,
             password
         });
         user.save()
-        .then((data) => {
-            res.status(201).json({ data });
-          })
-          .catch((error) => {
-            res.status(500).json({ error });
-          });
+        res.send("User sucessfully saved")
+    }
+
+    public signin(req: Request, res: Response): void {
+        User.findOne({ email: req.body.email }, (err, user: any) => {
+
+            if (err) return res.status(500).json({err})
+            if (!user) return res.status(401).json({ err: {message: 'Wrong Username'}})
+            if (!bcrypt.compareSync(req.body.password, user.password)) return res.status(401).json({ err: {message: "Wrong Password"}})
+
+            let token = jwt.sign({user: user}, 'secret', {expiresIn: 10800});
+            res.status(200).json({
+                mssage: 'You are logged in',
+                token: token
+            })
+        })
     }
 
     public routes() {
-        this.router.post('/', this.create)
-    }
+    this.router.post('/', this.create)
+    this.router.post('/signin', this.signin)
+}
 }
 
 const userRoutes = new UserRouter().router;
