@@ -19,7 +19,9 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.0",
+    "@angular/cli": "~1.7.3",
     "@angular/common": "^5.2.0",
     "@angular/compiler": "^5.2.0",
     "@angular/core": "^5.2.0",
@@ -36,12 +38,12 @@
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "jsonwebtoken": "^8.2.0",
     "mongoose": "^5.0.11",
     "morgan": "^1.9.0",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19",
-    "@angular/cli": "~1.7.3"
+    "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular/cli": "~1.7.3",

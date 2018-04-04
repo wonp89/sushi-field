@@ -1,0 +1,12 @@
+ul > li {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+ul > li > a {
+    color: black
+}
+
+#contact-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

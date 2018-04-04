@@ -1,3 +1,82 @@
+#categories-name {
+    font-family: 'Comfortaa', cursive;
+    color: #7f1a17;
+}
+.menu-list {
+    padding: 50px;
+    padding-top: 0;
+}
+
+#menu-dash {
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+
+#name-price-container {
+    display: flex;
+    justify-content: space-between
+}
+
+#name {
+    font-family: 'Open Sans', sans-serif;
+    color: #340a05;
+    font-size: 18px;
+}
+
+.price {
+    color: #340a05;
+    margin-top: 10px;
+    font-size: 18px;
+    margin-top: 0;
+}
+
+#dashed-underLine {
+    border-bottom: dashed 1px #643018;
+    height: 21px;
+    color: #fcfff2;
+    flex-grow: 1;
+}
+
+.about {
+    font-family: 'Comfortaa', cursive;
+    color: #baae49;
+    font-size: 15px;
+}
+
 .text-right {
     margin-bottom: 2px;
 }
+
+strong {
+    float: left;
+}
+
+#edit-menu {
+    cursor: pointer;
+    border: solid 1px #64a5f8;
+    border-radius: 5px;
+    padding:5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#delete-menu {
+    cursor: pointer;
+    border: solid 1px #dc3545;
+    border-radius: 5px;
+    padding:5px;
+}
+
+#edit-menu:hover {
+    background-color: #64a5f8;
+    color: white;
+}
+
+#delete-menu:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+@media screen and (max-width: 1200px) { .menu-container { width: 60% } }
+@media screen and (max-width: 800px) { .menu-container { width: 80% } }
+@media screen and (max-width: 500px) { .menu-container { width: 90% } }

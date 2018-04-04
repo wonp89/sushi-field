@@ -1,15 +1,19 @@
-<h1>{{category.categories}}</h1>
-<div class="panel panel-default">
-    <div class="panel-body" *ngFor="let menu of category.list">
-        <strong style="float: left">{{menu.name | uppercase }}</strong>
-        <p class="text-right">{{menu.price}}</p>
-        <p class="text-left">{{menu.about}}</p>
-        <div *ngIf="isLoggedIn()">
-            <a herf="#" (click)="onEdit(menu)">Edit</a>
-            <a (click)="onDelete(menu)">Delete</a>
+<div class="menu-list">
+    <h2 id="categories-name">{{category.categories | uppercase }}</h2>
+    <div id="menu-dash">_</div>
+    <div class="panel panel-default">
+        <div class="panel-body" *ngFor="let menu of category.list">
+            <div id="name-price-container">
+                <span id="name">{{menu.name | uppercase }}</span>
+                <div id="dashed-underLine">.</div>
+                <span class="price">{{menu.price}}</span>
+            </div>
+            <p class="text-left about">{{menu.about}}</p>
+            <div *ngIf="isLoggedIn()">
+                <a id="edit-menu" herf="#" (click)="onEdit(menu)">Edit</a>
+                <a id="delete-menu" (click)="onDelete(menu)">Delete</a>
+            </div>
         </div>
     </div>
 </div>
-<hr>
-
-<!-- islogged in is aways false -->
+<br>

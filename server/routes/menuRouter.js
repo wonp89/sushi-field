@@ -53,14 +53,13 @@ var MenuRouter = /** @class */ (function () {
             if (err)
                 return res.status(500).json({ err: err });
             // remove menu from old category
-            if (menu.category !== req.body.category)
-                category_1.default.find({ categories: menu.category }, function (err, result) {
-                    if (err)
-                        return res.status(500).json({ err: err });
-                    var oldCategory = result[0];
-                    oldCategory.list.pull(menu._id);
-                    oldCategory.save();
-                });
+            category_1.default.find({ categories: menu.category }, function (err, result) {
+                if (err)
+                    return res.status(500).json({ err: err });
+                var oldCategory = result[0];
+                oldCategory.list.pull(menu._id);
+                oldCategory.save();
+            });
             menu.name = req.body.name;
             menu.price = req.body.price;
             menu.about = req.body.about;

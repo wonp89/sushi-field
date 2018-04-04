@@ -16,7 +16,7 @@ var MenuSchema = new mongoose_1.Schema({
     about: {
         type: String,
         default: '',
-        required: true
+        required: false
     },
     category: {
         type: String,

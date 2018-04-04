@@ -4,15 +4,10 @@ import { NgForm } from '@angular/forms';
 import { MenuService } from './menu.service';
 import { Menu } from './menu.model'
 
-
 @Component({
     selector: 'app-menu-input',
     templateUrl: './menu-input.component.html',
-    styles: [`
-        form {
-            margin: auto;
-        }
-    `]
+    styleUrls: ['./menu-input.component.css']
 })
 
 export class MenuInputComponent implements OnInit {
@@ -23,16 +18,22 @@ export class MenuInputComponent implements OnInit {
 
     onSubmit(form: NgForm) {
         if (this.menu) {
-            this.menuService.deleteFromOriginalCategory(this.menu)
-            this.menu.name = form.value.name;
-            this.menu.price = form.value.price;
-            this.menu.about = form.value.about;
-            this.menu.category = form.value.category;
-            this.menuService.updateMenu(this.menu)
+            const oldMenu = this.menu
+            let updatedMenu = {
+                name: form.value.name,
+                price: form.value.price,
+                about: form.value.about,
+                category: form.value.category,
+                _id: oldMenu._id
+            }
+            this.menuService.updateMenu(oldMenu, updatedMenu)
                 .subscribe(
-                    result => console.log(result)
+                    result => {
+                        console.log('updateMenu', result);
+                        this.menuService.insertIntoList(oldMenu, updatedMenu)
+                        this.menu = null;
+                    }
                 );
-            this.menu = null;
         } else {
             const menu = new Menu(
                 form.value.name,
@@ -51,14 +52,34 @@ export class MenuInputComponent implements OnInit {
         form.resetForm();
     }
 
-    isLoggedIn() {    
+    isLoggedIn() {
         return this.menuService.isLoggedIn();
+    }
+
+    onClear(form: NgForm) {
+        this.menu = null;
+        form.resetForm();
+    }
+  
+    toggleInput() {
+        console.log(this.menu)
+        let button = document.getElementById("toggle-button");
+        let form = document.getElementById("form-container");
+        if (form.style.display == 'block') {
+            form.style.display = 'none';
+            button.style.paddingBottom = '50px';
+        } else {
+            this.menu = null;
+            form.style.display = 'block';
+            button.style.paddingBottom = '20px';
+        }
     }
 
     ngOnInit() {
         this.menuService.menuIsEdit
             .subscribe(
-                (menu: Menu) => this.menu = menu
-            )
+                (menu: Menu) => {
+                    this.menu = menu;
+                })
     }
 }

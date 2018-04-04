@@ -1,0 +1,47 @@
+/* .contact-container {
+
+} */
+
+#footer {
+    display: flex;
+    align-items: center;
+    position:fixed;
+    z-index: -1;
+    bottom:0;
+    width:100%;
+    height:100vh; 
+    background:#7f1a17;
+    color: white;
+ }
+
+ #map {
+    border:solid 2px #fcfff2;
+ }
+
+agm-map {
+    height: 40vh;
+}
+
+#phoneNumber {
+    color: white;
+    font-family: 'Comfortaa', cursive;
+}
+
+.contact-list {
+    font-family: 'Lato', sans-serif;
+    color: #b8807e;
+    margin-bottom: 5px;
+}
+
+.contact-info {
+    font-family: 'Comfortaa', cursive;
+}
+
+#copyRight {
+    color: white;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+}
+
+

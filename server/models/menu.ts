@@ -15,7 +15,7 @@ const MenuSchema: Schema = new Schema({
     about: {
         type: String,
         default: '',
-        required: true
+        required: false
     },
     category: {
         type: String,

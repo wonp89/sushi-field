@@ -1,0 +1,12 @@
+#signin-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 10px;
+}
+
+button {
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+@media screen and (max-width: 475px) { #signin-container { width: 100%; margin-left: 50px; } }

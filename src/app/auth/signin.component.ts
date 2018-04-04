@@ -6,18 +6,8 @@ import { User } from './user.model';
 
 @Component({
     selector: 'app-signin',
-    template:`
-        <div>
-            <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="d-inline" *ngIf="!isLoggedIn()">
-            <label>Login</label>
-                 <input type="text" id="username" ngModel name="username" required>
-                 <input type="text" id="password" ngModel name="password" required>
-                 <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Login</button>
-            </form>
-            <app-logout *ngIf="isLoggedIn()"></app-logout>
-        </div>
-        <br>
-    `
+    templateUrl:'./signin.component.html',
+    styleUrls: [`./signin.component.css`]
 })
 
 export class SignInComponent {

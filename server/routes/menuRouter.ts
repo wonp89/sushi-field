@@ -58,7 +58,6 @@ class MenuRouter {
         Menu.findById(req.params.id, (err, menu: any) => {
             if (err) return res.status(500).json({ err })
             // remove menu from old category
-            if (menu.category !== req.body.category)
                 Category.find({ categories: menu.category }, (err, result: any) => {
                     if (err) return res.status(500).json({ err })
                     const oldCategory = result[0]
