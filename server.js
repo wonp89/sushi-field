@@ -17,8 +17,8 @@ var Server = /** @class */ (function () {
         this.routes();
     }
     Server.prototype.mongooseConnect = function () {
-        var MONGO_URI = 'mongodb://localhost:27017/sushi-field';
-        // const MONGO_URI: string = 'mongodb://sushiFieldUser:salmontuna@ds229549.mlab.com:29549/sushifield';
+        // const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
+        var MONGO_URI = 'mongodb://sushiFieldUser:salmontuna@ds229549.mlab.com:29549/sushifield';
         mongoose.connect(MONGO_URI, function (err) {
             if (err) {
                 console.log(err.message);
@@ -37,16 +37,10 @@ var Server = /** @class */ (function () {
         this.app.get('*'), function (req, res) {
             res.sendFile(path.join(__dirname, 'dist/index.html'));
         };
-        this.app.use(function (req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-            res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-            next();
-        });
     };
     Server.prototype.routes = function () {
         var router = express.Router();
-        this.app.use('/user', userRouter_1.default);
+        this.app.use('/#/user', userRouter_1.default);
         this.app.use('/menu', menuRouter_1.default);
         this.app.use('/category', categoryRouter_1.default);
     };
