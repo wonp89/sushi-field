@@ -18,7 +18,7 @@ export class MenuService {
         const body = JSON.stringify(menu);
         const headers = new Headers({ 'Content-Type': 'application/json' });
 
-        return this.http.post('http://localhost:3000/menu', body, { headers: headers })
+        return this.http.post('https://sushifield.herokuapp.com/menu', body, { headers: headers })
             .map((res: Response) => {
                 const result = res.json().data[0];
                 const category = new Category(
@@ -37,7 +37,7 @@ export class MenuService {
     }
 
     getMenu() {
-        return this.http.get('http://localhost:3000/menu')
+        return this.http.get('https://sushifield.herokuapp.com/menu')
             .map((res: Response) => {
                 const result = res.json().data;
                 let allMenus: any = [];
@@ -78,7 +78,7 @@ export class MenuService {
     updateMenu(oldMenu: Menu, newMenu: Menu) {
         const body = JSON.stringify(newMenu);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this.http.patch('http://localhost:3000/menu/' + newMenu._id, body, { headers: headers })
+        return this.http.patch('https://sushifield.herokuapp.com/menu/' + newMenu._id, body, { headers: headers })
             .map((res: Response) => {
                 return res.json();
              })
@@ -89,7 +89,7 @@ export class MenuService {
         for (let menus of this.category) {
             if (menus.categories === menu.category) menus.list.splice(menus.list.indexOf(menu), 1)
         }
-        return this.http.delete('http://localhost:3000/menu/' + menu._id)
+        return this.http.delete('https://sushifield.herokuapp.com/menu/' + menu._id)
             .map((res: Response) => res.json())
             .catch((error: Response) => Observable.throw(error.json()));
 
