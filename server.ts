@@ -49,7 +49,7 @@ class Server {
 
     public routes(): void {
         const router: express.Router = express.Router();
-        this.app.use('/#/user', userRouter);
+        this.app.use('/user', userRouter);
         this.app.use('/menu', menuRouter);
         this.app.use('/category', categoryRouter);
     }
