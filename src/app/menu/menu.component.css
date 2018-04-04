@@ -80,3 +80,4 @@ strong {
 @media screen and (max-width: 1200px) { .menu-container { width: 60% } }
 @media screen and (max-width: 800px) { .menu-container { width: 80% } }
 @media screen and (max-width: 500px) { .menu-container { width: 90% } }
+@media screen and (max-width: 400px) { .menu-list { padding: 0;} }

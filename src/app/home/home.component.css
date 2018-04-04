@@ -22,14 +22,13 @@
     padding-top: 100px;
 }
 
-.footer-cover {
-    height: 100vh;
-    width: 100%;
+.home-container-background > div {
+    padding-right: 0;
 }
 
 #home-footer {
     background-color: white;
-    width: 100%;
+    width: 100vw;
     height: 60vh;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
     clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
@@ -38,6 +37,7 @@
     justify-content: center;
     align-items: center;
     margin-top: -1px;
+    margin-bottom: 100vh;
 }
 
 #home-footer span {
@@ -47,12 +47,12 @@
 }
 
 #interior {
-    width:100%;
+    width:100vw;
 }
 
 #home-paragraph {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 80px;
 }
 
 /* text */
@@ -102,14 +102,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 200px;
 }
 
 #home-food-images > img {
     width: 300px;
     height: 300px;
-    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 #home-shape {
@@ -120,8 +118,6 @@
     background-color:red; 
     width:300px; 
     height: 300px;
-    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 .eat-in-take-out {
@@ -130,4 +126,15 @@
     width: 50%;
     color: white;
     font-family: 'Comfortaa', cursive;
+}
+
+@media screen and (max-width: 475px) { #logo { width: 80%;} }
+@media screen and (max-width: 500px) { 
+    #logo { width: 80%;} 
+    #quotation-mark { width: 50px}
+    #quotation-mark2 { width: 50px;margin-left: 250px;}
+    .sushi {font-size: 90px;margin-top: 20px; margin-top: -35px;}
+    .at-sushifield {font-size: 36px; margin-top: -30px;}
+    #home-food-images > img { width: 250px; height: 250px;}
+    #home-shape {width: 250px; height: 250px;}
 }
