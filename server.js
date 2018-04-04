@@ -40,7 +40,7 @@ var Server = /** @class */ (function () {
     };
     Server.prototype.routes = function () {
         var router = express.Router();
-        this.app.use('/#/user', userRouter_1.default);
+        this.app.use('/user', userRouter_1.default);
         this.app.use('/menu', menuRouter_1.default);
         this.app.use('/category', categoryRouter_1.default);
     };
