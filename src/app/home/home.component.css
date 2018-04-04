@@ -30,7 +30,7 @@
 #home-footer {
     background-color: white;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
     clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
     text-align: center;
@@ -52,4 +52,82 @@
 
 #home-paragraph {
     text-align: center;
+    margin-top: 100px;
+}
+
+/* text */
+.all-you-need-is {
+    font-family: sans; 
+    color:#b4b4b4;
+    margin-top: -21px;
+}
+
+.sushi {
+    font-family: 'Open Sans'; 
+    font-size: 130px; 
+    margin-top: -35px;
+}
+
+.at-sushifield {
+    font-size: 51px; 
+    font-family: 'lato'; 
+    margin-top: -40px;
+    margin-bottom: 20px;
+}
+
+.sushiField {
+    color: #be792e;
+}
+
+.and-mark {
+    color:#fffea7;
+}
+
+#quotation-mark {
+    width: 100px;
+    margin-right: 240px;
+    opacity: 0.6;
+}
+
+#quotation-mark2 {
+    width: 100px;
+    margin-top: -50px;
+    margin-left: 280px;
+    opacity: 0.5;
+}
+
+
+/* homepage food (middle) images */
+#home-food-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+#home-food-images > img {
+    width: 300px;
+    height: 300px;
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+#home-shape {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:red; 
+    width:300px; 
+    height: 300px;
+    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.eat-in-take-out {
+    font-size: 15px;
+    padding-top: 10px; 
+    width: 50%;
+    color: white;
+    font-family: 'Comfortaa', cursive;
 }
