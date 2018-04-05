@@ -11,6 +11,6 @@
       ]
     },
     "files": ["index.ts", "server.ts"],
-    "include": ["server/**/*"]
+    "include": ["server/**/*", "config/**/*"]
   }
   
