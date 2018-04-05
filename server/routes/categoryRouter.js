@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-//route for seeding category database: http://localhost:3000/category
 var express_1 = require("express");
 var category_1 = require("../models/category");
 var CategoryRouter = /** @class */ (function () {
@@ -9,6 +8,7 @@ var CategoryRouter = /** @class */ (function () {
         this.routes();
     }
     CategoryRouter.prototype.create = function (req, res) {
+        // seeding manually
         var categories = [
             new category_1.default({
                 categories: "Appetizer"

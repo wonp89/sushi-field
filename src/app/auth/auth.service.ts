@@ -11,7 +11,7 @@ export class AuthService {
     signin(user: User) {
         const body = JSON.stringify(user);
         const headers = new Headers({ 'Content-type': 'application/json' });
-        return this.http.post('https://sushifield.herokuapp.com/user/signin', body, { headers: headers })
+        return this.http.post('/user/signin', body, { headers: headers })
         .map((response: Response) => response.json())
         .catch((err: Response) => Observable.throw(err.json()))
     }

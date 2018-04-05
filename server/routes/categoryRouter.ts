@@ -1,4 +1,3 @@
-//route for seeding category database: http://localhost:3000/category
 import { Request, Response, Router } from 'express';
 import Category from '../models/category';
 import Menu from '../models/menu';
@@ -12,7 +11,7 @@ class CategoryRouter {
     }
 
     public create(req: Request, res: Response): void {
-
+        // seeding manually
         const categories: any[] = [
             new Category({
                 categories: "Appetizer"

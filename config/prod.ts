@@ -1,0 +1,1 @@
+export const mongoURI: any = process.env.MONGO_URI

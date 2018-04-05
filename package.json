@@ -2,6 +2,14 @@
   "name": "sushi-field",
   "version": "0.0.0",
   "license": "MIT",
+  "proxy": {
+    "/menu/*": {
+      "target": "http://localhost:3000"
+    },
+    "/user/signin": {
+      "target": "http://localhost:3000"
+    }
+  },
   "main": "index.js",
   "engines": {
     "node": "8.10.0",

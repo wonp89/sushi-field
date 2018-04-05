@@ -39,8 +39,7 @@ class MenuRouter {
                     const selectedCategory: any = category[0]
                     selectedCategory.list.push(data._id)
                     selectedCategory.save()
-
-                        // send menu object stored in category list array to the client side
+                        // send menu objects stored in category list array to the client side
                         .then((result: any): void => {
                             Category.find({ _id: result._id })
                                 .populate('list', ['name', 'price', 'about', 'category'])
@@ -57,28 +56,13 @@ class MenuRouter {
     public update(req: Request, res: Response): void {
         Menu.findById(req.params.id, (err, menu: any) => {
             if (err) return res.status(500).json({ err })
-            // remove menu from old category
-                Category.find({ categories: menu.category }, (err, result: any) => {
-                    if (err) return res.status(500).json({ err })
-                    const oldCategory = result[0]
-                    oldCategory.list.pull(menu._id)
-                    oldCategory.save();
-                })
-
             menu.name = req.body.name
             menu.price = req.body.price
             menu.about = req.body.about
             menu.category = req.body.category
             menu.save((err, result) => {
                 if (err) return res.status(500).json({ err })
-                Category.find({ categories: result.category }, (err, category: any) => {
-                    if (err) return res.status(500).json({ err });
-                    //save menu into new category
-                    const selectedCategory: any = category[0]
-                    selectedCategory.list.push(result._id)
-                    selectedCategory.save()
-                    res.status(201).json({ result })
-                })
+                res.status(201).json({ result })
             })
         })
     }

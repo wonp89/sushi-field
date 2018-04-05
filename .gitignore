@@ -1,5 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+dev.js
+dev.js.map
+dev.ts
+
 # compiled output
 /dist
 /dist-server

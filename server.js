@@ -6,6 +6,7 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var path = require("path");
 var mongoose = require("mongoose");
+var keys_1 = require("./config/keys");
 var userRouter_1 = require("./server/routes/userRouter");
 var menuRouter_1 = require("./server/routes/menuRouter");
 var categoryRouter_1 = require("./server/routes/categoryRouter");
@@ -17,9 +18,8 @@ var Server = /** @class */ (function () {
         this.routes();
     }
     Server.prototype.mongooseConnect = function () {
-        var MONGO_URI = 'mongodb://localhost:27017/sushi-field';
-        // const MONGO_URI: string = 'mongodb://sushiFieldUser:salmontuna@ds229549.mlab.com:29549/sushifield';
-        mongoose.connect(MONGO_URI, function (err) {
+        // const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
+        mongoose.connect(keys_1.keys.mongoURI, function (err) {
             if (err) {
                 console.log(err.message);
             }

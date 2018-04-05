@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     margin-top: 7px;
     text-align: left;
+    margin-right: 30px;
 }
 
 button {
@@ -10,4 +11,11 @@ button {
     padding-bottom: 5px;
 }
 
-@media screen and (max-width: 475px) { #signin-container { text-align: right } }
+@media screen and (max-width: 476px) { 
+    #signin-container { 
+     margin-right: 5px
+    }
+    form > div {
+        text-align: right;
+    }
+}

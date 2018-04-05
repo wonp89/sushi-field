@@ -2,7 +2,9 @@
     <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="d-inline" *ngIf="!isLoggedIn()">
         <input type="text" id="username" ngModel name="username" placeholder="Username" required>
         <input type="text" id="password" ngModel name="password" placeholder="Password" required>
+        <div>
         <button class="btn btn-default" type="submit" [disabled]="!f.valid">Login</button>
+        </div>
     </form>
     <app-logout *ngIf="isLoggedIn()"></app-logout>
 </div>

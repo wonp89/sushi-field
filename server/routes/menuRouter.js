@@ -52,14 +52,6 @@ var MenuRouter = /** @class */ (function () {
         menu_1.default.findById(req.params.id, function (err, menu) {
             if (err)
                 return res.status(500).json({ err: err });
-            // remove menu from old category
-            category_1.default.find({ categories: menu.category }, function (err, result) {
-                if (err)
-                    return res.status(500).json({ err: err });
-                var oldCategory = result[0];
-                oldCategory.list.pull(menu._id);
-                oldCategory.save();
-            });
             menu.name = req.body.name;
             menu.price = req.body.price;
             menu.about = req.body.about;
@@ -67,15 +59,7 @@ var MenuRouter = /** @class */ (function () {
             menu.save(function (err, result) {
                 if (err)
                     return res.status(500).json({ err: err });
-                category_1.default.find({ categories: result.category }, function (err, category) {
-                    if (err)
-                        return res.status(500).json({ err: err });
-                    //save menu into new category
-                    var selectedCategory = category[0];
-                    selectedCategory.list.push(result._id);
-                    selectedCategory.save();
-                    res.status(201).json({ result: result });
-                });
+                res.status(201).json({ result: result });
             });
         });
     };

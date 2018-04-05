@@ -6,6 +6,7 @@ import * as path from "path";
 import * as http from "http";
 import * as mongoose from 'mongoose';
 import { Request, Response } from 'express';
+import { keys } from './config/keys'
 
 import userRouter from './server/routes/userRouter';
 import menuRouter from './server/routes/menuRouter';
@@ -24,8 +25,7 @@ class Server {
 
     public mongooseConnect(): void {
         // const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
-        const MONGO_URI: string = 'mongodb://sushiFieldUser:salmontuna@ds229549.mlab.com:29549/sushifield';
-        mongoose.connect(MONGO_URI, (err) => {
+        mongoose.connect(keys.mongoURI, (err) => {
             if (err) {
                 console.log(err.message);
             }
@@ -33,6 +33,7 @@ class Server {
                 console.log('Connected to MongoDb');
             }
         });
+
     }
 
     public config(): void {
