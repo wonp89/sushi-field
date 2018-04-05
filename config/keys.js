@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 // import * as devKey from './dev'
 var prodKey = require("./prod");
-exports.keys = (process.env.BUILD_MODE === 'production')
+exports.keys = (process.env.NODE_ENV === 'production')
     ? prodKey
     : null;
 //# sourceMappingURL=keys.js.map
