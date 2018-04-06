@@ -19,6 +19,12 @@ export class HomeComponent implements OnInit {
                     $('.home-heading-container').fadeIn();
                 }
             });
+
+            $(window).scroll(function () {
+                let scrollTop = $(this).scrollTop();
+                $('.parallax-bg').css('top', -(scrollTop * 0.2) + 'px')
+            })
+
             $("#upButton").click(function () {
                 $("html, body").animate({ scrollTop: 0 }, "slow");
                 return false;

@@ -6,6 +6,11 @@ const CategorySchema: Schema = new Schema({
         default: '',
         required: true
     },
+    order: {
+        type: Number,
+        defauts: '',
+        required: true
+    },
     list: [{type: Schema.Types.ObjectId, ref: 'Menu'}]
 });
 

@@ -7,6 +7,11 @@ var CategorySchema = new mongoose_1.Schema({
         default: '',
         required: true
     },
+    order: {
+        type: Number,
+        defauts: '',
+        required: true
+    },
     list: [{ type: mongoose_1.Schema.Types.ObjectId, ref: 'Menu' }]
 });
 exports.default = mongoose_1.model('Category', CategorySchema);

@@ -9,7 +9,7 @@ var MenuRouter = /** @class */ (function () {
         this.routes();
     }
     MenuRouter.prototype.get = function (req, res) {
-        category_1.default.find()
+        category_1.default.find().sort({ "order": 1 })
             .populate('list', ['name', 'price', 'about', 'category'])
             .exec(function (err, data) {
             if (err)
@@ -35,7 +35,7 @@ var MenuRouter = /** @class */ (function () {
                     return res.status(500).json({ err: err });
                 var selectedCategory = category[0];
                 selectedCategory.list.push(data._id);
-                selectedCategory.save()
+                selectedCategory.save({ _id: selectedCategory._id })
                     .then(function (result) {
                     category_1.default.find({ _id: result._id })
                         .populate('list', ['name', 'price', 'about', 'category'])

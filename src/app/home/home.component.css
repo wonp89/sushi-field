@@ -4,6 +4,7 @@
 
 .home-heading-container {
     display: flex;
+    z-index: 1;
     height:100vh;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,7 @@
     background-color: white;
     width: 100vw;
     padding-top: 100px;
+    border-top: solid black;
 }
 
 .home-container-background > div {
@@ -53,13 +55,36 @@
 
 #home-paragraph {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 50px;
+    -webkit-clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
+    clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
+    background-color: #c7c7ef;
+    padding: 70px;
+}
+
+#parallax {
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    overflow: hidden;
+    margin-top: 150px;
+}
+
+.parallax-bg {
+    position: absolute;
+    width: 100%;
+    height: 300%;
+    background-image: url('/assets/sushi-party.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
 }
 
 /* text */
 .all-you-need-is {
+    font-size: 55px;
     font-family: sans; 
-    color:#b4b4b4;
+    color:#adadad;
     margin-top: -21px;
 }
 
@@ -67,6 +92,7 @@
     font-family: 'Open Sans'; 
     font-size: 130px; 
     margin-top: -35px;
+    color:#801a17;
 }
 
 .at-sushifield {
@@ -81,32 +107,18 @@
 }
 
 .and-mark {
-    color:#fffea7;
+    color:#ffc000;
 }
-
-#quotation-mark {
-    width: 100px;
-    margin-right: 240px;
-    opacity: 0.6;
-}
-
-#quotation-mark2 {
-    width: 100px;
-    margin-top: -50px;
-    margin-left: 280px;
-    opacity: 0.5;
-}
-
 
 /* homepage food (middle) images */
-#home-food-images {
+.home-food-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 200px;
+    margin-top: 150px;
 }
 
-#home-food-images > img {
+.home-food-images > img {
     width: 300px;
     height: 300px;
 }
@@ -116,26 +128,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:red; 
     width:300px; 
     height: 300px;
 }
 
-.eat-in-take-out {
-    font-size: 15px;
+#home-shape > p {
+    font-size: 40px;
     padding-top: 10px; 
     width: 50%;
-    color: white;
     font-family: 'Comfortaa', cursive;
 }
 
 @media screen and (max-width: 475px) { #logo { width: 80%;} }
 @media screen and (max-width: 500px) { 
+    #home-paragraph {margin-top: 0;}
     #logo { width: 80%; margin-bottom: 50px;} 
-    #quotation-mark { width: 50px}
-    #quotation-mark2 { width: 50px;margin-left: 200px;}
-    .sushi {font-size: 90px;margin-top: 20px; margin-top: -35px;}
-    .at-sushifield {font-size: 36px; margin-top: -30px;}
-    #home-food-images > img { width: 250px; height: 250px;}
+    .sushi {font-size: 46px;margin-top: 20px; margin-top: -15px;}
+    .at-sushifield {font-size: 19px; margin-top: -16px;}
+    .home-food-images {margin-top: 100px}
+    .home-food-images > img { width: 250px; height: 250px;}
     #home-shape {width: 250px; height: 250px;}
+    .all-you-need-is {font-size: 20px;}
 }

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-// import * as devKey from './dev'
+var devKey = require("./dev");
 var prodKey = require("./prod");
 exports.keys = (process.env.NODE_ENV === 'production')
     ? prodKey
-    : null;
+    : devKey;
 //# sourceMappingURL=keys.js.map

@@ -11,7 +11,7 @@ class MenuRouter {
     }
 
     public get(req: Request, res: Response): void {
-        Category.find()
+        Category.find().sort( { "order" : 1 } )
             .populate('list', ['name', 'price', 'about', 'category'])
             .exec((err, data) => {
                 if (err) return res.status(500).json({ err })
@@ -38,7 +38,7 @@ class MenuRouter {
                     if (err) return res.status(500).json({ err });
                     const selectedCategory: any = category[0]
                     selectedCategory.list.push(data._id)
-                    selectedCategory.save()
+                    selectedCategory.save({_id: selectedCategory._id})
                         // send menu objects stored in category list array to the client side
                         .then((result: any): void => {
                             Category.find({ _id: result._id })

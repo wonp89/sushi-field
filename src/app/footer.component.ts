@@ -10,5 +10,5 @@ export class FooterComponent {
     title: string = 'My first AGM project';
     lat: number = 48.412664;
     lng: number = -123.339103;
-    zoom: number = 18;
+    zoom: number = 15;
 }

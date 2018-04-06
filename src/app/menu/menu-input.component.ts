@@ -12,7 +12,7 @@ import { Menu } from './menu.model'
 
 export class MenuInputComponent implements OnInit {
     menu: Menu;
-    categoriesList: String[] = ["Appetizer", "Sushi", "Tempura", "Noodle"];
+    categoriesList: String[] = ["Appetizer", "Lunch Special", "Dinner Special", "Tempura", "Noodles", "Sashimi", "Sushi Nigiri", "Hoso Maki", "Temaki (Sushi Cones)", "Vegetable Sushi Rolls", "Sushi Rolls", "Baked Rolls", "Tempura Rolls", "Chef's Special Rolls", "Teriyaki / Katsu / Don", "Roll Combo", "Platter"];
 
     constructor(private menuService: MenuService) { }
 

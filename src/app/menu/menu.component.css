@@ -1,7 +1,11 @@
 #categories-name {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Lato', sans-serif;
     color: #7f1a17;
+    font-weight: lighter;
+    background-color: #fffeed;
+    border-bottom: solid 1px #b6b6a8;
 }
+
 .menu-list {
     padding: 50px;
     padding-top: 0;
@@ -12,6 +16,10 @@
     font-size: 13px;
 }
 
+.panel-default {
+    width: 90%;
+}
+
 #name-price-container {
     display: flex;
     justify-content: space-between
@@ -19,19 +27,19 @@
 
 #name {
     font-family: 'Open Sans', sans-serif;
-    color: #340a05;
-    font-size: 18px;
+    color: #6e504f;
+    font-size: 16px;
 }
 
 .price {
-    color: #340a05;
+    color: #6e504f;
     margin-top: 10px;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 0;
 }
 
 #dashed-underLine {
-    border-bottom: dashed 1px #643018;
+    border-bottom: dashed 1px #d6d9c8;
     height: 21px;
     color: #fcfff2;
     flex-grow: 1;
@@ -39,7 +47,7 @@
 
 .about {
     font-family: 'Comfortaa', cursive;
-    color: #baae49;
+    color: #c4c1a3;
     font-size: 15px;
 }
 
