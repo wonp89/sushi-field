@@ -3,4 +3,5 @@ import * as prodKey from './prod'
 
 export const keys: any = (process.env.NODE_ENV === 'production')
 ? prodKey as any
-: null
+// : devKey as any
+:null
