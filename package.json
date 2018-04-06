@@ -18,7 +18,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "concurrently \"ng build -watch\" \"tsc -p tsconfig-server.json -watch\" \"nodemon index.js\"",
-    "build": "ng build --prod",
+    "build": "ng build --prod --build-optimizer",
     "postinstall": "ng build --aot -prod",
     "start": "node index.js",
     "test": "ng test",
