@@ -118,9 +118,16 @@
     margin-top: 150px;
 }
 
-.home-food-images > img {
+.home-food-images > div > img {
     width: 300px;
     height: 300px;
+}
+
+.img-title {
+    position: absolute;
+    margin-top: -30px;
+    color: white;
+    margin-left: 10px;
 }
 
 #home-shape {
