@@ -11,14 +11,15 @@ import * as $ from 'jquery';
 
 export class MenuListComponent implements OnInit {
     categories: Category[]
-    public menuImages: Number[]
+    public menuImages: any[]
 
     constructor(private menuService: MenuService) { }
 
     images() {
         const imageArray = []
-        for (let i = 1; i < 10; i++) {
-            imageArray.push(`./assets/menu${i}.png`)
+        const imageTitles = ['Bliss Platter', 'Lunch Combo', 'CucumberWheel','Vege Tempura', 'House Sashimi', 'Rainbow Roll', "Kings Roll", 'Tuna Tataki', 'Sushi Pizza']
+        for (let i = 0; i < 9; i++) {
+            imageArray.push({ image: `./assets/menu${i}.png`, title: imageTitles[i]})
         }
         this.menuImages = imageArray
     }

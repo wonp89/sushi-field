@@ -1,18 +1,23 @@
 <div class="menu-heading-container">
-        <h1 class="menu-heading text-center">MENU</h1>
+    <h1 class="menu-heading text-center">MENU</h1>
 </div>
 <div class="menu-container-background">
-<div class="container">
-    <br>
-    <div class="row">
-        <div id="menu-images-container">
-            <img src={{image}} alt="menu-images"  *ngFor="let image of menuImages">
+    <div class="container">
+        <br>
+        <div class="row">
+            <div id="menu-images-container">
+                <div *ngFor="let image of menuImages">
+                    <img src={{image.image}} alt="menu-images">
+                    <p>{{image.title}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="row menuList-container">
+            <app-menu [category]="category" *ngFor="let category of categories" class="col-md-6 text-center position-static">
+            </app-menu>
         </div>
     </div>
-    <div class="row menuList-container">
-        <app-menu [category]="category" *ngFor="let category of categories" class="col-md-6 text-center position-static">
-        </app-menu>
-    </div>
 </div>
+<div id="menu-footer">
+    <span id="upButton">⇑</span>
 </div>
-<div id="menu-footer"><span id="upButton">⇑</span></div>
