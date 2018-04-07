@@ -20,7 +20,6 @@
 .home-container-background {
     background-color: white;
     width: 100vw;
-    padding-top: 100px;
     border-top: solid black;
 }
 
@@ -58,8 +57,19 @@
     margin-top: 50px;
     -webkit-clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
     clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
-    background-color: #c7c7ef;
+    background-color: #efefff;
     padding: 70px;
+}
+
+#sushiShape-background {
+    background-color: white;
+    padding-bottom: 150px;
+    padding-top: 100px;
+}
+
+.home-paragraph-container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
 }
 
 #parallax {
@@ -67,7 +77,6 @@
     width: 100%;
     height: 65vh;
     overflow: hidden;
-    margin-top: 150px;
 }
 
 .parallax-bg {
