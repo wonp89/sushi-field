@@ -85,6 +85,5 @@
     .menu-heading{font-size: 80px;  margin-bottom: 50px;} 
 }
 @media screen and (max-width: 371px) {
-    #menu-images-container > div >img:last-child { display: none; }
-    #menu-images-container > div > p:last-child { display: none; }
+    #menu-images-container > div:last-child { display: none; }
 }

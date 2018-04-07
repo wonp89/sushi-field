@@ -13,7 +13,8 @@ button {
 
 @media screen and (max-width: 476px) { 
     #signin-container { 
-     margin-right: 5px
+     margin-right: 5px;
+     width: 150px;
     }
     form > div {
         text-align: right;
