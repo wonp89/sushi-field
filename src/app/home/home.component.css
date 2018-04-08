@@ -155,8 +155,8 @@
     font-family: 'Comfortaa', cursive;
 }
 
-@media screen and (max-width: 475px) { #logo { width: 80%;} }
-@media screen and (max-width: 500px) { 
+
+@media screen and (max-width: 768px) { 
     #home-paragraph {margin-top: 0;}
     #logo { width: 80%; margin-bottom: 50px;} 
     .sushi {font-size: 46px;margin-top: 20px; margin-top: -15px;}
@@ -166,3 +166,5 @@
     #home-shape {width: 250px; height: 250px;}
     .all-you-need-is {font-size: 20px;}
 }
+
+@media screen and (max-width: 475px) { #logo { width: 80%;} }
