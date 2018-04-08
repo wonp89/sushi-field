@@ -10,7 +10,7 @@
     bottom:0;
     width:100vw;
     height:100vh; 
-    background:#fafff4;
+    background:#f9fff2;
     color: black;
  }
 
@@ -29,7 +29,7 @@ agm-map {
 
 .contact-list {
     font-family: 'Lato', sans-serif;
-    color: #d8d8d8;
+    color: #c4c2c2;
     margin-bottom: 5px;
 }
 

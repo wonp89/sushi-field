@@ -6,9 +6,9 @@
     margin-bottom: 150px; 
 }
 .menuList-container {
-    border-bottom: double 5px #7f1a17;
+    border-bottom: double 5px #bebebe;
     padding-top: 70px;
-    background-color: #fffee8;
+    background-color: #f9fff2;
 }
 
 
@@ -27,7 +27,7 @@
 
 #menu-footer span {
     font-size: 50px;
-    color: #7f1a17;
+    color: #959595;
     cursor: pointer;
 }
 
