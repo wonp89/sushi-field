@@ -11,17 +11,6 @@ class UserRouter {
         this.routes();
     }
 
-    public create(req: Request, res: Response): void {
-        const username: string = "sushiField"
-        const password: string = bcrypt.hashSync("1234", 10)
-        let user = new User({
-            username,
-            password
-        });
-        user.save()
-        res.send("User sucessfully saved")
-    }
-
     public signin(req: Request, res: Response): void {
         User.findOne({ username: req.body.username }, (err, user: any) => {
             if (err) return res.status(500).json({err})
@@ -37,7 +26,6 @@ class UserRouter {
     }
 
     public routes() {
-    this.router.post('/', this.create)
     this.router.post('/signin', this.signin)
 }
 }

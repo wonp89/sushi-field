@@ -27,6 +27,7 @@
 #name {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
+    text-align: left;
 }
 
 .price {
@@ -37,14 +38,16 @@
 
 #dashed-underLine {
     border-bottom: dashed 1px #d6d9c8;
-    height: 21px;
+    height: 18px;
     color: #fcfff2;
     flex-grow: 1;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .about {
     font-family: 'Comfortaa', cursive;
-    color: #767676;
+    color: #9f9f9f;
     font-size: 15px;
 }
 

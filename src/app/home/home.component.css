@@ -57,7 +57,7 @@
     margin-top: 50px;
     -webkit-clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
     clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
-    background-color: #efefff;
+    background-color: #effff4;
     padding: 70px;
 }
 
@@ -130,13 +130,14 @@
 .home-food-images > div > img {
     width: 300px;
     height: 300px;
+    border-radius: 50%;
 }
 
 .img-title {
     position: absolute;
-    margin-top: -30px;
+    margin-top: -50px;
     color: white;
-    margin-left: 10px;
+    margin-left: 95px;
 }
 
 #home-shape {

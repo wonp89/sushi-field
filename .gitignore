@@ -4,6 +4,10 @@ dev.js
 dev.js.map
 dev.ts
 
+userCreate.js
+userCreate.js.map
+userCreate.ts
+
 # compiled output
 /dist
 /dist-server

@@ -1,9 +1,11 @@
 ul > li {
     margin-left: 20px;
     margin-top: 10px;
+    font-family: 'Comfortaa', cursive;
 }
 ul > li > a {
-    color: black
+    color: black;
+    font-family: 'Comfortaa', cursive;
 }
 
 #contact-link:hover {

@@ -10,7 +10,7 @@ import * as $ from 'jquery';
 export class HeaderComponent implements OnInit {
     ngOnInit() {
         $(document).ready(function () {
-            $('#contact-link').click(function () { $('html, body').animate({ scrollTop: $(document).height() }, 1000); }); 
+            $('#contact-link').click(function () { $('html, body').animate({ scrollTop: $(document).height() }, 500); }); 
         })
     }
 }

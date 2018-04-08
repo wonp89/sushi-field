@@ -9,16 +9,6 @@ var UserRouter = /** @class */ (function () {
         this.router = express_1.Router();
         this.routes();
     }
-    UserRouter.prototype.create = function (req, res) {
-        var username = "sushiField";
-        var password = bcrypt.hashSync("1234", 10);
-        var user = new user_1.default({
-            username: username,
-            password: password
-        });
-        user.save();
-        res.send("User sucessfully saved");
-    };
     UserRouter.prototype.signin = function (req, res) {
         user_1.default.findOne({ username: req.body.username }, function (err, user) {
             if (err)
@@ -35,7 +25,6 @@ var UserRouter = /** @class */ (function () {
         });
     };
     UserRouter.prototype.routes = function () {
-        this.router.post('/', this.create);
         this.router.post('/signin', this.signin);
     };
     return UserRouter;
