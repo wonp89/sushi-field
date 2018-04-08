@@ -55,9 +55,6 @@
 #home-paragraph {
     text-align: center;
     margin-top: 50px;
-    -webkit-clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
-    clip-path: polygon(30% 0, 79% 9%, 100% 54%, 79% 52%, 73% 95%, 28% 100%, 20% 56%, 0 46%);
-    background-color: #effff4;
     padding: 70px;
 }
 
