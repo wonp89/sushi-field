@@ -6,7 +6,7 @@
     margin-bottom: 150px; 
 }
 .menuList-container {
-    border-bottom: double 5px #bebebe;
+    border-bottom: solid #bebebe;
     padding-top: 70px;
 }
 
@@ -14,9 +14,7 @@
 #menu-footer {
     background-color: white;
     width: 100vw;
-    height: 60vh;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 50% 100%, 0% 50%);
+    height: 180px;
     text-align: center;
     display: flex;
     justify-content: center;

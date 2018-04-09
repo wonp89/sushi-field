@@ -60,7 +60,7 @@ class MenuRouter {
             menu.price = req.body.price
             menu.about = req.body.about
             menu.category = req.body.category
-            menu.save((err, result) => {
+            menu.save((err: any, result: any) => {
                 if (err) return res.status(500).json({ err })
                 res.status(201).json({ result })
             })

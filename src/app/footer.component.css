@@ -10,8 +10,8 @@
     bottom:0;
     width:100vw;
     height:100vh; 
-    background:#f9fff2;
-    color: black;
+    background-image: url('assets/footer-background.jpg');
+    color: white;
  }
 
  #map {
@@ -23,7 +23,7 @@ agm-map {
 }
 
 #phoneNumber {
-    color: black;
+    color: white;
     font-family: 'Comfortaa', cursive;
 }
 
@@ -38,7 +38,7 @@ agm-map {
 }
 
 #copyRight {
-    color: black;
+    color: white;
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-size: 13px;
