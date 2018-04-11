@@ -23,7 +23,6 @@ import { AgmCoreModule } from '@agm/core';
 import { MenuService } from './menu/menu.service';
 import { AuthService } from './auth/auth.service';
 
-
 @NgModule({
   declarations: [
     HomeComponent,

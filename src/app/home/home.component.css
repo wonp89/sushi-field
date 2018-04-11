@@ -103,10 +103,6 @@
     color: #be792e;
 }
 
-.and-mark {
-    color:#ffc000;
-}
-
 /* homepage food (middle) images */
 .home-food-images {
     display: flex;
@@ -122,13 +118,6 @@
     margin: 2px;
 }
 
-.img-title {
-    position: absolute;
-    margin-top: -50px;
-    color: white;
-    margin-left: 73px;
-}
-
 #home-shape {
     text-align: center;
     margin-right: 2px;
@@ -137,7 +126,7 @@
     align-items: center;
     width:300px; 
     height: 300px;
-    border: solid #f8c267;
+    border: solid 10px #f8c267;
     border-radius: 50%;
 }
 
@@ -146,6 +135,32 @@
     padding-top: 10px; 
     width: 50%;
     font-family: 'Comfortaa', cursive;
+}
+#home-shape > p > span {
+    color:#ffc000;
+}
+
+#home-shape2 {
+    text-align: center;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:300px; 
+    height: 300px;
+    border: solid 10px #f86767;
+    border-radius: 50%;
+}
+
+#home-shape2 > p {
+    font-size: 38px;
+    padding-top: 10px; 
+    width: 50%;
+    font-family: 'Comfortaa', cursive;
+}
+
+#home-shape2 > p > span {
+    color: #f86767;
 }
 
 
