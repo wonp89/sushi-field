@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
+import { environment } from '../environments/environment.prod';
 
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +44,7 @@ import { AuthService } from './auth/auth.service';
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAt7lMgvwlqvY8f9NMjsvvMUjvuY5_hS70'
+      apiKey: environment.REACT_APP_GOOGLE_API
     })
   ],
   providers: [MenuService, AuthService, {provide: LocationStrategy, useClass:HashLocationStrategy}],

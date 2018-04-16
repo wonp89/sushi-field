@@ -19,7 +19,7 @@
     "ng": "ng",
     "dev": "concurrently \"ng build -watch\" \"tsc -p tsconfig-server.json -watch\" \"nodemon index.js\"",
     "build": "ng build --prod",
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "ng build --aot --env=prod",
     "start": "node index.js",
     "test": "ng test",
     "lint": "ng lint",
