@@ -8,6 +8,8 @@ userCreate.js
 userCreate.js.map
 userCreate.ts
 
+.env.development
+.env.production
 
 # compiled output
 /dist

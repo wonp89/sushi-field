@@ -43,7 +43,7 @@ import { AuthService } from './auth/auth.service';
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: process.env.REACT_APP_GOOGLE_API
+      apiKey: 'AIzaSyAt7lMgvwlqvY8f9NMjsvvMUjvuY5_hS70'
     })
   ],
   providers: [MenuService, AuthService, {provide: LocationStrategy, useClass:HashLocationStrategy}],
