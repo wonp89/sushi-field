@@ -39,7 +39,7 @@ class MenuRouter {
                     const selectedCategory: any = category[0]
                     selectedCategory.list.push(data._id)
                     selectedCategory.save({_id: selectedCategory._id})
-                        // send menu objects stored in category list array to the client side
+                        // send 'menu objects' with full information to the client side to display creating new menu without reloading the page.
                         .then((result: any): void => {
                             Category.find({ _id: result._id })
                                 .populate('list', ['name', 'price', 'about', 'category'])
