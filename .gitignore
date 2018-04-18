@@ -8,7 +8,8 @@ userCreate.js
 userCreate.js.map
 userCreate.ts
 
-/src/environments
+environment.prod.ts
+environment.ts
 
 # compiled output
 /dist
