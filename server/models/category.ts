@@ -16,3 +16,4 @@ const CategorySchema: Schema = new Schema({
 
 export default model('Category', CategorySchema)
 
+
