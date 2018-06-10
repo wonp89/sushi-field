@@ -8,6 +8,20 @@ import * as $ from 'jquery';
 })
 
 export class HeaderComponent implements OnInit {
+
+    toggleLogin() {
+        let signinContainer = document.getElementById("signin-container");
+        if (signinContainer.style.display == 'flex') {
+            signinContainer.style.display = 'none';
+        } else {
+            signinContainer.style.display = 'flex';
+        }
+    }
+
+    isLoggedOut() {
+        return localStorage.getItem('token') == null;
+    }
+
     ngOnInit() {
         $(document).ready(function () {
             $('#contact-link').click(function () { $('html, body').animate({ scrollTop: $(document).height() }, 500); }); 

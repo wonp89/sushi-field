@@ -50,6 +50,10 @@
     cursor: pointer;
 }
 
+#home-footer span:hover {
+    color: orange;
+}
+
 #interior {
     width:100vw;
 }

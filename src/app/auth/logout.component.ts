@@ -4,7 +4,7 @@ import { AuthService } from "./auth.service";
 @Component({
     selector: 'app-logout',
     template: `
-         <button class="btn btn-default float-right" (click)="onLogout()">Logout</button>
+         <button class="btn btn-default float-right" (click)="onLogout()">LOGOUT</button>
     `,
     styles: [`
     button {

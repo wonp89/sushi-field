@@ -1,9 +1,8 @@
 #signin-container {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
-    margin-top: 7px;
     text-align: left;
-    margin-right: 30px;
+    margin: 15px;
 }
 
 button {
@@ -12,7 +11,10 @@ button {
 }
 
 @media screen and (max-width: 476px) { 
-    #signin-container { 
+    #login {
         display: none;
+    }
+    #signin-container { 
+        display: none !important;
     }
 }

@@ -28,6 +28,10 @@
     cursor: pointer;
 }
 
+#menu-footer span:hover {
+    color: orange;
+}
+
 .menu-container-background {
     background-color: white;
     width: 100vw;

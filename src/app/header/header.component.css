@@ -1,14 +1,33 @@
+ul {
+    margin:20px;
+}
+
 ul > li {
-    margin-left: 20px;
-    margin-top: 10px;
+    margin-left: 15px;
     font-family: 'Comfortaa', cursive;
 }
+
 ul > li > a {
     color: black;
     font-family: 'Comfortaa', cursive;
 }
 
+ul > li > a:hover {
+    color: orange;
+}
+
+.slash {
+    color: orange;
+}
+
 #contact-link:hover {
     text-decoration: underline;
+    color: orange;
     cursor: pointer;
+}
+
+#login:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color:orange;
 }

@@ -16,6 +16,12 @@
     background-repeat: no-repeat;
  }
 
+ #hoursSlash {
+     margin-left: 10px;
+     margin-right: 10px;
+     color: orange;
+ }
+
  #map {
     border:solid 2px #fcfff2;
  }

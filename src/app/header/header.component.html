@@ -2,8 +2,12 @@
     <li routerLinkActive="active">
         <a [routerLink]="['/']">HOME</a>
     </li>
+    <li class="slash">/</li>
     <li routerLinkActive="active">
         <a [routerLink]="['/menus']">MENU</a>
     </li>
+    <li  class="slash">/</li>
     <li routerLinkActive="active" id="contact-link">CONTACT</li>
+    <li  class="slash">/</li>
+    <li id="login" (click)="toggleLogin()" *ngIf="isLoggedOut()">LOGIN</li>
 </ul>
