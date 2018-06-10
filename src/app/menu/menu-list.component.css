@@ -10,6 +10,14 @@
     padding-top: 70px;
 }
 
+#zigzag-container {
+    display: flex;
+    justify-content: center;
+}
+
+#zigzag-container > img {
+    height: 100px;
+}
 
 #menu-footer {
     background-color: white;
