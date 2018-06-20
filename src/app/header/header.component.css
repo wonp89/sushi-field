@@ -21,13 +21,21 @@ ul > li > a:hover {
 }
 
 #contact-link:hover {
-    text-decoration: underline;
     color: orange;
     cursor: pointer;
 }
 
 #login:hover {
-    text-decoration: underline;
     cursor: pointer;
     color:orange;
+}
+
+.home-menu {
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 768px) {
+.last-slash {display: none;}
+ #login {display: none;}
 }
