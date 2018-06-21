@@ -130,8 +130,9 @@
     align-items: center;
     width:300px; 
     height: 300px;
-    border: solid 10px #f8c267;
-    border-radius: 50%;
+    border: solid 10px #f8ed67;
+    background-color: #f86767;
+    border-radius: 5%;
 }
 
 #home-shape > p {
@@ -139,9 +140,10 @@
     padding-top: 10px; 
     width: 50%;
     font-family: 'Comfortaa', cursive;
+    color: white;
 }
 #home-shape > p > span {
-    color:#ffc000;
+    color:#f8ed67;
 }
 
 #home-shape2 {
@@ -153,7 +155,8 @@
     width:300px; 
     height: 300px;
     border: solid 10px #f86767;
-    border-radius: 50%;
+    background-color: #f8ed67;
+    border-radius: 5%;
 }
 
 #home-shape2 > p {
@@ -161,6 +164,7 @@
     padding-top: 10px; 
     width: 50%;
     font-family: 'Comfortaa', cursive;
+    color: white;
 }
 
 #home-shape2 > p > span {
