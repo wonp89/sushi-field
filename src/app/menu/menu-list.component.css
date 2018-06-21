@@ -93,6 +93,9 @@
     #menu-images-container > div > p { font-size: 13px; margin-top: -20px} 
     .menu-heading{font-size: 80px;  margin-bottom: 50px;} 
 }
+@media screen and (max-width: 500px) {
+    #zigzag-container > img {height: 80px}
+}
 @media screen and (max-width: 371px) {
     #menu-images-container > div:last-child { display: none; }
 }
