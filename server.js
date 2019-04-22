@@ -18,7 +18,7 @@ var Server = /** @class */ (function () {
         this.routes();
     }
     Server.prototype.mongooseConnect = function () {
-        var MONGO_URI = 'mongodb://localhost:27017/sushi-field';
+        // const MONGO_URI: string = 'mongodb://localhost:27017/sushi-field';
         mongoose.connect(keys_1.keys.mongoURI, function (err) {
             if (err) {
                 console.log(err.message);
