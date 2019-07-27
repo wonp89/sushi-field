@@ -31,52 +31,60 @@ var CategoryRouter = /** @class */ (function () {
                 order: 4
             }),
             new category_1.default({
-                categories: "Sashimi",
+                categories: "Ramen",
                 order: 5
             }),
             new category_1.default({
-                categories: "Sushi Nigiri",
+                categories: "Japanese Curry",
                 order: 6
             }),
             new category_1.default({
-                categories: "Hoso Maki",
+                categories: "Sashimi",
                 order: 7
             }),
             new category_1.default({
-                categories: "Temaki (Sushi Cones)",
+                categories: "Sushi Nigiri",
                 order: 8
             }),
             new category_1.default({
-                categories: "Vegetable Sushi Rolls",
+                categories: "Hoso Maki",
                 order: 9
             }),
             new category_1.default({
-                categories: "Sushi Rolls",
+                categories: "Temaki (Sushi Cones)",
                 order: 10
             }),
             new category_1.default({
-                categories: "Baked Rolls",
+                categories: "Vegetable Sushi Rolls",
                 order: 11
             }),
             new category_1.default({
-                categories: "Tempura Rolls",
+                categories: "Sushi Rolls",
                 order: 12
             }),
             new category_1.default({
-                categories: "Chef's Special Rolls",
+                categories: "Baked Rolls",
                 order: 13
             }),
             new category_1.default({
-                categories: "Teriyaki / Katsu / Don",
+                categories: "Tempura Rolls",
                 order: 14
             }),
             new category_1.default({
-                categories: "Roll Combo",
+                categories: "Chef's Special Rolls",
                 order: 15
             }),
             new category_1.default({
-                categories: "Platter",
+                categories: "Teriyaki / Katsu / Don",
                 order: 16
+            }),
+            new category_1.default({
+                categories: "Roll Combo",
+                order: 17
+            }),
+            new category_1.default({
+                categories: "Platter",
+                order: 18
             }),
         ];
         for (var _i = 0, categories_1 = categories; _i < categories_1.length; _i++) {

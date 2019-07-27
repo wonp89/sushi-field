@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+What to change before deploy:
+1) Go to config/keys.ts and comment out line 1 and line 6.
+2) Go to server.ts and commenr our line 27
+3) run "npm run dev". It will generate JS files
+4) git save and deploy to heroku
+** Everytime you change the code, you need to run "npm run dev"
