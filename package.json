@@ -41,7 +41,7 @@
     "@types/debug": "0.0.30",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "concurrently": "^3.5.1",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.4.1",
